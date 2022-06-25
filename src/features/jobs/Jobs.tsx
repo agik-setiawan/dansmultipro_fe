@@ -22,9 +22,12 @@ export default function Jobs() {
 
     const fetchJobs = async () => {
         const session: any = await getSession();
-        if (session.accessToken) {
-            getJobs({ params,accessToken:session.accessToken });
+        if (session) {
+            if (session.accessToken) {
+                getJobs({ params, accessToken: session.accessToken });
+            }
         }
+
     }
 
     useEffect(() => {

@@ -20,9 +20,12 @@ const DetailJob: NextPage = ({ }: any) => {
 
     const fetchJobs = async () => {
         const session: any = await getSession();
-        if (session.accessToken) {
-            getJobDetail({ id, accessToken: session.accessToken });
+        if (session) {
+            if (session.accessToken) {
+                getJobDetail({ id, accessToken: session.accessToken });
+            }
         }
+
     }
 
     useEffect(() => {
